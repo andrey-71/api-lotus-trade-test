@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 require ('dotenv').config();
 const { NODE_ENV, PORT, DB_ADDRESS } = process.env;
 const { DEV_PORT, DEV_DB_ADDRESS } = require('./utils/config');
-const { setTimer, getTimer } = require('./controllers/timer')
+const { setTimer, getTimer } = require('./controllers/timer');
 
 const app = express();
 // Подключение к БД
@@ -17,6 +17,8 @@ mongoose.connect(`${NODE_ENV === 'production' ? DB_ADDRESS : DEV_DB_ADDRESS}`, {
 const corsOptions = {
   origin: [
     'http://localhost:3000',
+    'http://lotus.test-online.online',
+    'https://lotus.test-online.online',
   ],
   credentials: true,
 }

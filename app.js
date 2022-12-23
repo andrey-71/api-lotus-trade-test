@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-require ('dotenv').config();
+require('dotenv').config();
+
 const { NODE_ENV, PORT, DB_ADDRESS } = process.env;
 const { DEV_PORT, DEV_DB_ADDRESS } = require('./utils/config');
 const { setTimer, getTimer } = require('./controllers/timer');
@@ -21,7 +22,7 @@ const corsOptions = {
     'https://lotus.test-online.online',
   ],
   credentials: true,
-}
+};
 app.use(cors(corsOptions));
 
 // Сборка данных в JSON-формат
@@ -33,5 +34,5 @@ app.get('/timer', getTimer);
 
 // Запуск сервера
 app.listen(NODE_ENV === 'production' ? PORT : DEV_PORT, () => {
-  console.log(`App started on port ${NODE_ENV === 'production' ? PORT : DEV_PORT}`)
-})
+  console.log(`App started on port ${NODE_ENV === 'production' ? PORT : DEV_PORT}`);
+});

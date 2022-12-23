@@ -8,7 +8,7 @@ const timeSchema = new mongoose.Schema({
   oneTime: {
     type: Number,
     required: true,
-  }
-})
+  },
+});
 
 module.exports = mongoose.model('time', timeSchema);
